@@ -2,7 +2,7 @@ import random
 
 numar = random.randint(1,10)
 ghicit = 0
-print("M-am gandit la un numar, incearca sa-l ghicesti!")
+print("M-am gandit la un numar intre 1 si 10, incearca sa-l ghicesti!")
 
 while ghicit != numar:
 
