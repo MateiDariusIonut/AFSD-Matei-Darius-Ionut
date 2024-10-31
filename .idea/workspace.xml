@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b96a6b0f-65d4-455a-9eb2-d65319f22df3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Tema Laborator 3/Tema Laborator 3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tema Laborator 4/Tema Laborator 4.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,7 +50,9 @@
     "Python.Tema Laborator 1.executor": "Run",
     "Python.Tema Laborator 2.executor": "Run",
     "Python.Tema Laborator 3.executor": "Run",
+    "Python.Tema Laborator 4.executor": "Run",
     "Python.Test.executor": "Run",
+    "Python.lq.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main"
   }
