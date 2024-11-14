@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b96a6b0f-65d4-455a-9eb2-d65319f22df3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Tema Laborator 5/Tema Laborator 5.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tema Laborator 6/Tema Laborator 6.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,11 +48,13 @@
   "keyToString": {
     "Python.Hello World.executor": "Run",
     "Python.Proba.executor": "Run",
+    "Python.Quiz.executor": "Run",
     "Python.Tema Laborator 1.executor": "Run",
     "Python.Tema Laborator 2.executor": "Run",
     "Python.Tema Laborator 3.executor": "Run",
     "Python.Tema Laborator 4.executor": "Run",
     "Python.Tema Laborator 5.executor": "Run",
+    "Python.Tema Laborator 6.executor": "Run",
     "Python.Test.executor": "Run",
     "Python.lq.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
