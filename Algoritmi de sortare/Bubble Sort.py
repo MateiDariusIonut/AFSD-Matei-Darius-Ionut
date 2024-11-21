@@ -19,3 +19,6 @@ def optimized_bubble_sort(lista):
                 sortat = True
         n -= 1
     return lista
+
+print(bubble_sort([2,9,4,3,2,1,7]))
+print(optimized_bubble_sort([2,9,4,3,2,1,7]))
