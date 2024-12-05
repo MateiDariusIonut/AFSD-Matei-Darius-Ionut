@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b96a6b0f-65d4-455a-9eb2-d65319f22df3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Password Generator/Password_Generator.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sorting Algorithms Visualizer/Sorting Algorithms Visualizer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,6 +46,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python.Alg.executor": "Run",
     "Python.Bubble Sort.executor": "Run",
     "Python.Hello World.executor": "Run",
     "Python.Password Generator.executor": "Run",
@@ -53,6 +54,7 @@
     "Python.Proba.executor": "Run",
     "Python.Quiz.executor": "Run",
     "Python.Recapitulare.executor": "Run",
+    "Python.Sorting Algorithms Visualizer.executor": "Run",
     "Python.Tema Laborator 1.executor": "Run",
     "Python.Tema Laborator 2.executor": "Run",
     "Python.Tema Laborator 3.executor": "Run",
