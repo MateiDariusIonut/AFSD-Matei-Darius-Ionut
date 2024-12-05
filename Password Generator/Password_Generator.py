@@ -55,7 +55,6 @@ def generate_pass():
             for i in range(pass_length):
                 randomchar = random.choice(characters)
                 password += randomchar
-            print(password)
             textbox = customtkinter.CTkTextbox(root, font=("Arial", 16, "bold"), height=15, width=300)
             textbox.tag_config("center", justify="center")
             textbox.insert("0.0", f'{password}', "center")
