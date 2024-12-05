@@ -4,6 +4,9 @@ from tkinter import ttk
 root = tk.Tk()
 root.title("Sorting Algorithms Visualizer")
 
+def selected_option():
+
+
 frame = ttk.Frame(root, width=100, height=200)
 frame.grid(row=0, column=0)
 frame.pack(side="left", padx=10)
