@@ -86,6 +86,8 @@ def bubble_sort_visual(heights, bar_width, canvas_width, canvas_height, i=0, j=0
                 canvas.create_rectangle(x0, y0, x1, y1, fill="#90EE90", outline="")
             else:
                 canvas.create_rectangle(x0, y0, x1, y1, fill="#90EE90", outline="black")
+            root.update_idletasks()
+            root.after(10)
         shuffled = False
         enable_buttons()
         return
@@ -106,9 +108,11 @@ def bubble_sort_visual(heights, bar_width, canvas_width, canvas_height, i=0, j=0
                     canvas.create_rectangle(x0, y0, x1, y1, fill="white", outline="")
                 else:
                     canvas.create_rectangle(x0, y0, x1, y1, fill="white", outline="black")
+        root.update_idletasks()
+        root.after(seted_delay)
         if heights[j] > heights[j + 1]:
-            canvas.delete("all")
             heights[j], heights[j + 1] = heights[j + 1], heights[j]
+            canvas.delete("all")
             for k, height in enumerate(heights):
                 x0 = k * bar_width + 2
                 y0 = canvas_height - height + 2
@@ -124,8 +128,6 @@ def bubble_sort_visual(heights, bar_width, canvas_width, canvas_height, i=0, j=0
                         canvas.create_rectangle(x0, y0, x1, y1, fill="white", outline="")
                     else:
                         canvas.create_rectangle(x0, y0, x1, y1, fill="white", outline="black")
-            root.update_idletasks()
-            root.after(seted_delay)
         root.after(seted_delay, bubble_sort_visual, heights, bar_width, canvas_width, canvas_height, i, j + 1)
     else:
         root.after(seted_delay, bubble_sort_visual, heights, bar_width, canvas_width, canvas_height, i + 1, 0)
@@ -151,12 +153,6 @@ def start_algorithm():
         canvas_height = int(canvas["height"])
         bar_width = canvas_width // num_bars
         canvas.delete("all")
-        for k, height in enumerate(data):
-            x0 = k * bar_width + 2
-            y0 = canvas_height - height + 2
-            x1 = canvas_width if k == len(data) - 1 else x0 + bar_width
-            y1 = canvas_height + 2
-            canvas.create_rectangle(x0, y0, x1, y1, fill="white", outline="")
         bubble_sort_visual(data, bar_width, canvas_width, canvas_height)
     elif sort_algorithm == "Stupid Sort":
         msgbox.showerror("Sorting Algorithm", "Stupid Sort was not implemented yet!")
