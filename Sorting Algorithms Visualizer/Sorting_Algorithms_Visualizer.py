@@ -109,12 +109,30 @@ def bubble_sort_visual(heights, bar_width, canvas_width, canvas_height, i=0, j=0
                 else:
                     canvas.create_rectangle(x0, y0, x1, y1, fill="white", outline="black")
         if heights[j] > heights[j + 1]:
+            canvas.delete("all")
             heights[j], heights[j + 1] = heights[j + 1], heights[j]
+            for k, height in enumerate(heights):
+                x0 = k * bar_width + 2
+                y0 = canvas_height - height + 2
+                x1 = x0 + bar_width
+                y1 = canvas_height + 2
+                if k == j or k == j + 1:
+                    if n > 128:
+                        canvas.create_rectangle(x0, y0, x1, y1, fill="yellow", outline="")
+                    else:
+                        canvas.create_rectangle(x0, y0, x1, y1, fill="yellow", outline="black")
+                else:
+                    if n > 128:
+                        canvas.create_rectangle(x0, y0, x1, y1, fill="white", outline="")
+                    else:
+                        canvas.create_rectangle(x0, y0, x1, y1, fill="white", outline="black")
+            root.update_idletasks()
+            root.after(seted_delay)
         root.after(seted_delay, bubble_sort_visual, heights, bar_width, canvas_width, canvas_height, i, j + 1)
     else:
         root.after(seted_delay, bubble_sort_visual, heights, bar_width, canvas_width, canvas_height, i + 1, 0)
 
-def start_bubble_sort():
+def start_algorithm():
     global data
     global shuffled
     global seted_delay
@@ -149,7 +167,7 @@ frame = ttk.Frame(root, width=100, height=200)
 frame.grid(row=0, column=0)
 frame.pack(side="left", padx=10)
 
-start_button = ttk.Button(frame, text="START",command=start_bubble_sort)
+start_button = ttk.Button(frame, text="START",command=start_algorithm)
 start_button.grid(row=0, column=0)
 
 pause_button = ttk.Button(frame, text="PAUSE")

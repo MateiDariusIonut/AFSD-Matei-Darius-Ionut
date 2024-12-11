@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b96a6b0f-65d4-455a-9eb2-d65319f22df3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Sorting Algorithms Visualizer/Sorting_Algorithms_Visualizer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/AFSD-Matei-Darius-Ionut.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/AFSD-Matei-Darius-Ionut.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sorting Algorithms Visualizer/Sorting Algorithms Visualizer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sorting Algorithms Visualizer/Sorting_Algorithms_Visualizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Sorting Algorithms Visualizer/Sorting_Algorithms_Visualizer.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,37 +44,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.Alg.executor": "Run",
-    "Python.Bubble Sort.executor": "Run",
-    "Python.Hello World.executor": "Run",
-    "Python.Password Generator.executor": "Run",
-    "Python.Password_Generator.executor": "Run",
-    "Python.Proba.executor": "Run",
-    "Python.Quiz.executor": "Run",
-    "Python.Recapitulare.executor": "Run",
-    "Python.Sorting Algorithms Visualizer.executor": "Run",
-    "Python.Sorting_Algorithms_Visualizer.executor": "Run",
-    "Python.Tema Laborator 1.executor": "Run",
-    "Python.Tema Laborator 2.executor": "Run",
-    "Python.Tema Laborator 3.executor": "Run",
-    "Python.Tema Laborator 4.executor": "Run",
-    "Python.Tema Laborator 5.executor": "Run",
-    "Python.Tema Laborator 6.executor": "Run",
-    "Python.Test.executor": "Run",
-    "Python.afsafa.executor": "Run",
-    "Python.ascaxa.executor": "Run",
-    "Python.lq.executor": "Run",
-    "Python.qwfas.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/dariu/Documents/GitHub/AFSD-Matei-Darius-Ionut",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.Alg.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Bubble Sort.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Hello World.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Password Generator.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Password_Generator.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Proba.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Quiz.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Recapitulare.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Sorting Algorithms Visualizer.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Sorting_Algorithms_Visualizer.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Tema Laborator 1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Tema Laborator 2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Tema Laborator 3.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Tema Laborator 4.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Tema Laborator 5.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Tema Laborator 6.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.afsafa.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ascaxa.executor&quot;: &quot;Run&quot;,
+    &quot;Python.lq.executor&quot;: &quot;Run&quot;,
+    &quot;Python.qwfas.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/dariu/Documents/GitHub/AFSD-Matei-Darius-Ionut&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\marce\Documents\GitHub\AFSD-Matei-Darius-Ionut\Tema Laborator 2" />
