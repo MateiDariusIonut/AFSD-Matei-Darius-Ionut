@@ -39,8 +39,7 @@ def draw_bars():
     canvas_width = int(canvas["width"])
     canvas_height = int(canvas["height"])
     bar_width = canvas_width // num_bars
-    max_bar_height = canvas_height
-    heights = [i * max_bar_height / num_bars for i in range(1, num_bars + 1)]
+    heights = [i * canvas_height / num_bars for i in range(1, num_bars + 1)]
     for i, height in enumerate(heights):
         x0 = i * bar_width + 2
         y0 = canvas_height - height +2
@@ -58,8 +57,7 @@ def shuffle_bars():
     num_bars = int(number_of_elements_combobox.get())
     canvas_width = int(canvas["width"])
     canvas_height = int(canvas["height"])
-    max_bar_height = canvas_height
-    data = [i * max_bar_height / num_bars for i in range(1, num_bars + 1)]
+    data = [i * canvas_height / num_bars for i in range(1, num_bars + 1)]
     random.shuffle(data)
     shuffled = True
     canvas.delete("all")
