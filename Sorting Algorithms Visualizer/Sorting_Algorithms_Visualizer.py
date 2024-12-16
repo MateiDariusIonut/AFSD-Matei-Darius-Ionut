@@ -128,6 +128,8 @@ def bubble_sort_visual(heights, bar_width, canvas_width, canvas_height, i=0, j=0
                         canvas.create_rectangle(x0, y0, x1, y1, fill="white", outline="")
                     else:
                         canvas.create_rectangle(x0, y0, x1, y1, fill="white", outline="black")
+        root.update_idletasks()
+        root.after(seted_delay)
         root.after(seted_delay, bubble_sort_visual, heights, bar_width, canvas_width, canvas_height, i, j + 1)
     else:
         root.after(seted_delay, bubble_sort_visual, heights, bar_width, canvas_width, canvas_height, i + 1, 0)
