@@ -134,6 +134,85 @@ def bubble_sort_visual(heights, bar_width, canvas_width, canvas_height, i=0, j=0
     else:
         root.after(seted_delay, bubble_sort_visual, heights, bar_width, canvas_width, canvas_height, i + 1, 0)
 
+
+def selection_sort_visual(heights, bar_width, canvas_width, canvas_height, i=0, j=None, min_idx=None):
+    global seted_delay
+    global shuffled
+    n = len(heights)
+    if min_idx is None:
+        min_idx = i
+    if j is None:
+        j = i + 1
+    if i >= n - 1:
+        for k, height in enumerate(heights):
+            x0 = k * bar_width + 2
+            y0 = canvas_height - height + 2
+            x1 = x0 + bar_width
+            y1 = canvas_height + 2
+            if n > 128:
+                canvas.create_rectangle(x0, y0, x1, y1, fill="white", outline="")
+            else:
+                canvas.create_rectangle(x0, y0, x1, y1, fill="white", outline="black")
+        for k, height in enumerate(heights):
+            x0 = k * bar_width + 2
+            y0 = canvas_height - height + 2
+            x1 = x0 + bar_width
+            y1 = canvas_height + 2
+            if n>128:
+                canvas.create_rectangle(x0, y0, x1, y1, fill="#90EE90", outline="")
+            else:
+                canvas.create_rectangle(x0, y0, x1, y1, fill="#90EE90", outline="black")
+            root.update_idletasks()
+            root.after(10)
+        enable_buttons()
+        shuffled = False
+        return
+    if j < n:
+        canvas.delete("all")
+        for k, height in enumerate(heights):
+            x0 = k * bar_width + 2
+            y0 = canvas_height - height + 2
+            x1 = x0 + bar_width
+            y1 = canvas_height + 2
+            if k == j or k == min_idx:
+                if n > 128:
+                    canvas.create_rectangle(x0, y0, x1, y1, fill="red", outline="")
+                else:
+                    canvas.create_rectangle(x0, y0, x1, y1, fill="red", outline="black")
+            else:
+                if n > 128:
+                    canvas.create_rectangle(x0, y0, x1, y1, fill="white", outline="")
+                else:
+                    canvas.create_rectangle(x0, y0, x1, y1, fill="white", outline="black")
+        root.update_idletasks()
+        root.after(seted_delay)
+        if heights[j] < heights[min_idx]:
+            min_idx = j
+        root.after(seted_delay, selection_sort_visual, heights, bar_width, canvas_width, canvas_height, i, j + 1,min_idx)
+    else:
+        if min_idx != i:
+            heights[i], heights[min_idx] = heights[min_idx], heights[i]
+            canvas.delete("all")
+            for k, height in enumerate(heights):
+                x0 = k * bar_width + 2
+                y0 = canvas_height - height + 2
+                x1 = x0 + bar_width
+                y1 = canvas_height + 2
+                if k == i or k == min_idx:
+                    if n > 128:
+                        canvas.create_rectangle(x0, y0, x1, y1, fill="yellow", outline="")
+                    else:
+                        canvas.create_rectangle(x0, y0, x1, y1, fill="yellow", outline="black")
+                else:
+                    if n > 128:
+                        canvas.create_rectangle(x0, y0, x1, y1, fill="white", outline="")
+                    else:
+                        canvas.create_rectangle(x0, y0, x1, y1, fill="white", outline="black")
+            root.update_idletasks()
+            root.after(seted_delay)
+        root.after(seted_delay, selection_sort_visual, heights, bar_width, canvas_width, canvas_height, i + 1, None, None)
+
+
 def start_algorithm():
     global data
     global shuffled
@@ -156,8 +235,22 @@ def start_algorithm():
         bar_width = canvas_width // num_bars
         canvas.delete("all")
         bubble_sort_visual(data, bar_width, canvas_width, canvas_height)
-    elif sort_algorithm == "Stupid Sort":
-        msgbox.showerror("Sorting Algorithm", "Stupid Sort was not implemented yet!")
+    elif sort_algorithm == "Selection Sort":
+        disable_buttons()
+        if not shuffled:
+            msgbox.showerror("Not Shuffled", "Please press SHUFFLE button before!")
+            enable_buttons()
+            return
+        if seted_delay == -1:
+            msgbox.showerror("The delay has not been set", "Please set a delay")
+            enable_buttons()
+            return
+        num_bars = int(number_of_elements_combobox.get())
+        canvas_width = int(canvas["width"])
+        canvas_height = int(canvas["height"])
+        bar_width = canvas_width // num_bars
+        canvas.delete("all")
+        selection_sort_visual(data, bar_width, canvas_width, canvas_height)
 
 frame = ttk.Frame(root, width=100, height=200)
 frame.grid(row=0, column=0)
@@ -187,7 +280,7 @@ exit_button.grid(row=6, column=0)
 sorting_choose = ttk.Label(frame, text="Choose sorting algorithm")
 sorting_choose.grid(row=7, column=0)
 
-sorting_box = ttk.Combobox(frame, values=["Stupid Sort","Bubble Sort"])
+sorting_box = ttk.Combobox(frame, values=["Bubble Sort","Selection Sort"], state="readonly")
 sorting_box.set("Bubble Sort")
 sorting_box.grid(row=8, column=0)
 
