@@ -9,8 +9,50 @@ root.resizable(False, False)
 data = []
 shuffled = False
 predefined_elements = [8,16,32,64,128,256,512]
-seted_delay=-1
+seted_delay = -1
 sort_algorithm = ''
+paused = False
+stopped = False
+
+def resume():
+    global paused
+    paused = False
+    pause_button.config(state="enabled")
+    resume_button.config(state="disabled")
+
+def pause():
+    global paused
+    paused = True
+    pause_button.config(state="disabled")
+    resume_button.config(state="enabled")
+
+def stop():
+    global stopped
+    global paused
+    stopped = True
+    paused = False
+    enable_buttons()
+    pause_button.config(state="disabled")
+    resume_button.config(state="disabled")
+    start_button.config(state="disabled")
+    shuffle_button.config(state="disabled")
+
+def reset():
+    global data
+    global shuffled
+    global paused
+    global stopped
+    shuffled = False
+    paused = False
+    stopped = False
+    data = []
+    canvas.delete("all")
+    draw_bars()
+    enable_buttons()
+    pause_button.config(state="enabled")
+    resume_button.config(state="disabled")
+    number_of_elements_combobox.set(16)
+    delay_combobox.set(50)
 
 def get_delay_input():
     global seted_delay
@@ -75,7 +117,17 @@ def shuffle_bars():
 def bubble_sort_visual(heights, bar_width, canvas_width, canvas_height, i=0, j=0):
     global seted_delay
     global shuffled
+    global paused
+    global stopped
     n = len(heights)
+    if stopped:
+        enable_buttons()
+        start_button.config(state="disabled")
+        shuffle_button.config(state="disabled")
+        return
+    if paused:
+        root.after(seted_delay, bubble_sort_visual, heights, bar_width, canvas_width, canvas_height, i, j)
+        return
     if i >= n - 1:
         for k, height in enumerate(heights):
             x0 = k * bar_width + 2
@@ -139,6 +191,14 @@ def selection_sort_visual(heights, bar_width, canvas_width, canvas_height, i=0, 
     global seted_delay
     global shuffled
     n = len(heights)
+    if stopped:
+        enable_buttons()
+        start_button.config(state="disabled")
+        shuffle_button.config(state="disabled")
+        return
+    if paused:
+        root.after(seted_delay, selection_sort_visual, heights, bar_width, canvas_width, canvas_height, i, j, min_idx)
+        return
     if min_idx is None:
         min_idx = i
     if j is None:
@@ -218,39 +278,27 @@ def start_algorithm():
     global shuffled
     global seted_delay
     global sort_algorithm
+    global stopped
     sort_algorithm = sorting_box.get()
+    disable_buttons()
+    if not shuffled:
+        msgbox.showerror("Not Shuffled", "Please press SHUFFLE button before!")
+        enable_buttons()
+        return
+    if seted_delay == -1:
+        msgbox.showerror("The delay has not been set", "Please set a delay")
+        enable_buttons()
+        return
+    num_bars = int(number_of_elements_combobox.get())
+    canvas_width = int(canvas["width"])
+    canvas_height = int(canvas["height"])
+    bar_width = canvas_width // num_bars
+    canvas.delete("all")
     if sort_algorithm == "Bubble Sort":
-        disable_buttons()
-        if not shuffled:
-            msgbox.showerror("Not Shuffled","Please press SHUFFLE button before!")
-            enable_buttons()
-            return
-        if seted_delay == -1:
-            msgbox.showerror("The delay has not been set", "Please set a delay")
-            enable_buttons()
-            return
-        num_bars = int(number_of_elements_combobox.get())
-        canvas_width = int(canvas["width"])
-        canvas_height = int(canvas["height"])
-        bar_width = canvas_width // num_bars
-        canvas.delete("all")
         bubble_sort_visual(data, bar_width, canvas_width, canvas_height)
     elif sort_algorithm == "Selection Sort":
-        disable_buttons()
-        if not shuffled:
-            msgbox.showerror("Not Shuffled", "Please press SHUFFLE button before!")
-            enable_buttons()
-            return
-        if seted_delay == -1:
-            msgbox.showerror("The delay has not been set", "Please set a delay")
-            enable_buttons()
-            return
-        num_bars = int(number_of_elements_combobox.get())
-        canvas_width = int(canvas["width"])
-        canvas_height = int(canvas["height"])
-        bar_width = canvas_width // num_bars
-        canvas.delete("all")
         selection_sort_visual(data, bar_width, canvas_width, canvas_height)
+
 
 frame = ttk.Frame(root, width=100, height=200)
 frame.grid(row=0, column=0)
@@ -259,19 +307,20 @@ frame.pack(side="left", padx=10)
 start_button = ttk.Button(frame, text="START",command=start_algorithm)
 start_button.grid(row=0, column=0)
 
-pause_button = ttk.Button(frame, text="PAUSE")
+pause_button = ttk.Button(frame, text="PAUSE", command=pause)
 pause_button.grid(row=1, column=0)
 
-resume_button = ttk.Button(frame, text="RESUME")
+resume_button = ttk.Button(frame, text="RESUME",command=resume)
+resume_button.config(state="disabled")
 resume_button.grid(row=2, column=0)
 
-stop_button = ttk.Button(frame, text="STOP")
+stop_button = ttk.Button(frame, text="STOP", command=stop)
 stop_button.grid(row=3, column=0)
 
-reset_button = ttk.Button(frame, text="RESET")
+reset_button = ttk.Button(frame, text="RESET", command=reset)
 reset_button.grid(row=4, column=0)
 
-shuffle_button = ttk.Button(frame, text="SHUFFLE",command=shuffle_bars)
+shuffle_button = ttk.Button(frame, text="SHUFFLE", command=shuffle_bars)
 shuffle_button.grid(row=5, column=0)
 
 exit_button = ttk.Button(frame, text="EXIT", command=root.destroy)
