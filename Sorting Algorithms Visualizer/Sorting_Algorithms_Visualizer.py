@@ -54,6 +54,12 @@ def reset():
     number_of_elements_combobox.set(16)
     delay_combobox.set(50)
 
+def sorted(data):
+    for i in range(len(data) - 1):
+        if data[i] > data[i + 1]:
+            return False
+    return True
+
 def get_delay_input():
     global seted_delay
     seted_delay = int(delay_combobox.get())
@@ -76,8 +82,6 @@ def draw_bars():
     global shuffled
     canvas.delete("all")
     num_bars = int(number_of_elements_combobox.get())
-    if num_bars <= 0:
-        msgbox.showerror("Invalid number", "Please set a positive number!")
     canvas_width = int(canvas["width"])
     canvas_height = int(canvas["height"])
     bar_width = canvas_width // num_bars
@@ -85,7 +89,7 @@ def draw_bars():
     for i, height in enumerate(heights):
         x0 = i * bar_width + 2
         y0 = canvas_height - height +2
-        x1 = x0 + bar_width + 2
+        x1 = x0 + bar_width
         y1 = canvas_height + 2
         if num_bars>128:
             canvas.create_rectangle(x0, y0, x1, y1, fill="white",outline="")
@@ -272,6 +276,48 @@ def selection_sort_visual(heights, bar_width, canvas_width, canvas_height, i=0, 
             root.after(seted_delay)
         root.after(seted_delay, selection_sort_visual, heights, bar_width, canvas_width, canvas_height, i + 1, None, None)
 
+def bogo_sort_visual(data, bar_width, canvas_width, canvas_height):
+    global seted_delay
+    global stopped
+    global paused
+    n = len(data)
+    if stopped:
+        enable_buttons()
+        start_button.config(state="disabled")
+        shuffle_button.config(state="disabled")
+        return
+    if paused:
+        root.after(seted_delay, bogo_sort_visual, data, bar_width, canvas_width, canvas_height)
+        return
+    canvas.delete("all")
+    for i, height in enumerate(data):
+        x0 = i * bar_width + 2
+        y0 = canvas_height - height + 2
+        x1 = x0 + bar_width
+        y1 = canvas_height + 2
+        if n > 128:
+            canvas.create_rectangle(x0, y0, x1, y1, fill="white", outline="")
+        else:
+            canvas.create_rectangle(x0, y0, x1, y1, fill="white", outline="black")
+    root.update_idletasks()
+    root.after(seted_delay)
+    if sorted(data):
+        canvas.delete("all")
+        for i, height in enumerate(data):
+            x0 = i * bar_width + 2
+            y0 = canvas_height - height + 2
+            x1 = x0 + bar_width
+            y1 = canvas_height + 2
+            if n>128:
+                canvas.create_rectangle(x0, y0, x1, y1, fill="#90EE90", outline="")
+            else:
+                canvas.create_rectangle(x0, y0, x1, y1, fill="#90EE90", outline="black")
+        root.update_idletasks()
+        enable_buttons()
+        return
+    else:
+        random.shuffle(data)
+        root.after(seted_delay, bogo_sort_visual, data, bar_width, canvas_width, canvas_height)
 
 def start_algorithm():
     global data
@@ -298,6 +344,8 @@ def start_algorithm():
         bubble_sort_visual(data, bar_width, canvas_width, canvas_height)
     elif sort_algorithm == "Selection Sort":
         selection_sort_visual(data, bar_width, canvas_width, canvas_height)
+    elif sort_algorithm == "Bogo Sort":
+        bogo_sort_visual(data, bar_width, canvas_width, canvas_height)
 
 
 frame = ttk.Frame(root, width=100, height=200)
@@ -329,14 +377,14 @@ exit_button.grid(row=6, column=0)
 sorting_choose = ttk.Label(frame, text="Choose sorting algorithm")
 sorting_choose.grid(row=7, column=0)
 
-sorting_box = ttk.Combobox(frame, values=["Bubble Sort","Selection Sort"], state="readonly")
+sorting_box = ttk.Combobox(frame, values=["Bubble Sort","Selection Sort","Bogo Sort"], state="readonly")
 sorting_box.set("Bubble Sort")
 sorting_box.grid(row=8, column=0)
 
 number_of_elements = ttk.Label(frame, text="Set number of elements")
 number_of_elements.grid(row=9, column=0, columnspan=1)
 
-number_of_elements_combobox = ttk.Combobox(frame,width=5, values=[8, 16, 32, 64, 128, 256, 512], state="readonly")
+number_of_elements_combobox = ttk.Combobox(frame,width=5, values=[4,8, 16, 32, 64, 128, 256, 512], state="readonly")
 number_of_elements_combobox.set(16)
 number_of_elements_combobox.grid(row=10, column=0)
 
