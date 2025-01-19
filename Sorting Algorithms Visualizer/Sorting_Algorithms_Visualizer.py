@@ -280,6 +280,7 @@ def bogo_sort_visual(data, bar_width, canvas_width, canvas_height):
     global seted_delay
     global stopped
     global paused
+    global shuffled
     n = len(data)
     if stopped:
         enable_buttons()
@@ -312,6 +313,7 @@ def bogo_sort_visual(data, bar_width, canvas_width, canvas_height):
                 canvas.create_rectangle(x0, y0, x1, y1, fill="#90EE90", outline="")
             else:
                 canvas.create_rectangle(x0, y0, x1, y1, fill="#90EE90", outline="black")
+        shuffled = False
         root.update_idletasks()
         enable_buttons()
         return
