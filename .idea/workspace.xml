@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b96a6b0f-65d4-455a-9eb2-d65319f22df3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/AFSD-Matei-Darius-Ionut.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/AFSD-Matei-Darius-Ionut.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sorting Algorithms Visualizer/Sorting_Algorithms_Visualizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Sorting Algorithms Visualizer/Sorting_Algorithms_Visualizer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Algoritmi de sortare/Bubble Sort.py" beforeDir="false" afterPath="$PROJECT_DIR$/Algoritmi de sortare/Bubble Sort.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +66,7 @@
     &quot;Python.afsafa.executor&quot;: &quot;Run&quot;,
     &quot;Python.ascaxa.executor&quot;: &quot;Run&quot;,
     &quot;Python.lq.executor&quot;: &quot;Run&quot;,
+    &quot;Python.proba.executor&quot;: &quot;Run&quot;,
     &quot;Python.qwfas.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,

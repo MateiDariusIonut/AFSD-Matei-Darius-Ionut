@@ -13,12 +13,9 @@ def optimized_bubble_sort(lista):
     n=len(lista)
     while sortat and n>1:
         sortat = False
-        for i in range(len(lista)-1):
+        for i in range(n-1):
             if lista[i] > lista[i+1]:
                 lista[i],lista[i+1] = lista[i+1],lista[i]
                 sortat = True
         n -= 1
     return lista
-
-print(bubble_sort([2,9,4,3,2,1,7]))
-print(optimized_bubble_sort([2,9,4,3,2,1,7]))
