@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b96a6b0f-65d4-455a-9eb2-d65319f22df3" name="Changes" comment="" />
+    <list default="true" id="b96a6b0f-65d4-455a-9eb2-d65319f22df3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Tema Laborator 1/Tema Laborator 1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Laborator AFSD Sem 1/Tema Laborator 1/Tema Laborator 1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tema Laborator 2/Tema Laborator 2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Laborator AFSD Sem 1/Tema Laborator 2/Tema Laborator 2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tema Laborator 3/Tema Laborator 3.py" beforeDir="false" afterPath="$PROJECT_DIR$/Laborator AFSD Sem 1/Tema Laborator 3/Tema Laborator 3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tema Laborator 4/Tema Laborator 4.py" beforeDir="false" afterPath="$PROJECT_DIR$/Laborator AFSD Sem 1/Tema Laborator 4/Tema Laborator 4.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tema Laborator 5/Tema Laborator 5.py" beforeDir="false" afterPath="$PROJECT_DIR$/Laborator AFSD Sem 1/Tema Laborator 5/Tema Laborator 5.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tema Laborator 6/Tema Laborator 6.py" beforeDir="false" afterPath="$PROJECT_DIR$/Laborator AFSD Sem 1/Tema Laborator 6/Tema Laborator 6.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -74,6 +81,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\marce\Documents\GitHub\AFSD-Matei-Darius-Ionut\Laborator AFSD Sem 1" />
       <recent name="C:\Users\marce\Documents\GitHub\AFSD-Matei-Darius-Ionut\Tema Laborator 2" />
       <recent name="C:\Users\marce\Documents\GitHub\AFSD-Matei-Darius-Ionut\Tema Laborator 1" />
     </key>
