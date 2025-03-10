@@ -3,7 +3,7 @@ from faker import Faker
 
 
 
-#def generate_cnp():
+def generare_cnp():
 
 
 #with open("cnp.csv",'w',newline='') as csvfile:
