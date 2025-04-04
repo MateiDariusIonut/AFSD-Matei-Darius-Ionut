@@ -1,6 +1,6 @@
 import hashlib
 
-parola_de_ghicit = "2fb82906d2cd83ef58aa8f30e2b67e3515f647d9177f87211d137f6796691e9b"
+parola_de_ghicit = "0e000d61c1735636f56154f30046be93b3d71f1abbac3cd9e3f80093fdb357ad"
 
 litere_mari = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 cifre = "0123456789"
