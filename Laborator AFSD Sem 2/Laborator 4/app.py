@@ -11,7 +11,7 @@ def verify_product_name(entry_vals):
 
     for char in product_name:
         if not (char.isalpha() or char.isspace()):
-            return "Numele poate fi format doar din litere și spații"
+            return "Numele poate fi format doar din litere și spații!"
     return None
 
 # Functie care verifica daca cantitatea produsului este un numar intreg
