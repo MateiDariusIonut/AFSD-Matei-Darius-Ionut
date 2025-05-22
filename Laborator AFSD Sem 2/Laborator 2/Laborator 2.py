@@ -11,6 +11,7 @@ total_apeluri_recursive = 0
 def get_hash(parola):
     return hashlib.sha256(parola.encode()).hexdigest()
 
+# Functie care genereaza candidate conform cerintei si gaseste care dintre ele este aceeasi cu parola ce trebuie ghicita
 def backtracking_parola(parola, count_litere_mari, count_cifre, count_caractere_speciale, count_litere_mici):
     global total_apeluri_recursive
     print(f"Candidată generată: {parola}")

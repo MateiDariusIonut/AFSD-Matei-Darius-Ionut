@@ -9,22 +9,22 @@ produse = data["produse"]
 
 def calculeaza_rest(suma_rest, bancnote, stoc_bancnote):
 
-    dp = [float('inf')] * (suma_rest + 1)
-    combinatii = [-1] * (suma_rest + 1)
-    dp[0] = 0
+    nr_min_bancnote = [float('inf')] * (suma_rest + 1)
+    ultima_bancnota = [-1] * (suma_rest + 1)
+    nr_min_bancnote[0] = 0
 
     for i in range(suma_rest + 1):
         for bancnota in bancnote:
             valoare = bancnota['valoare']
-            if i >= valoare and dp[i - valoare] < float('inf') and stoc_bancnote[valoare] > 0:
-                if dp[i] > dp[i - valoare] + 1:
-                    dp[i] = dp[i - valoare] + 1
-                    combinatii[i] = valoare
+            if i >= valoare and nr_min_bancnote[i - valoare] < float('inf') and stoc_bancnote[valoare] > 0:
+                if nr_min_bancnote[i] > nr_min_bancnote[i - valoare] + 1:
+                    nr_min_bancnote[i] = nr_min_bancnote[i - valoare] + 1
+                    ultima_bancnota[i] = valoare
 
     rest = suma_rest
     bancnote_utilizate = []
     while rest > 0:
-        valoare_bancnota = combinatii[rest]
+        valoare_bancnota = ultima_bancnota[rest]
         if valoare_bancnota == -1:
             return None
         bancnote_utilizate.append(valoare_bancnota)
@@ -66,4 +66,4 @@ def simulare(numar_clienti):
                 print(f"Bancnota: {valoare} RON | Stoc: {stoc_bancnote[valoare]}")
             return
 
-simulare(1000)
+simulare(100)

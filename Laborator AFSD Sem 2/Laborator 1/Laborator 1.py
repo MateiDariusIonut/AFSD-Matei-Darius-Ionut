@@ -1,5 +1,6 @@
 import random
 import csv
+import os
 from faker import Faker
 
 fake = Faker('ro_RO')
@@ -11,6 +12,10 @@ data = []
 table_size = 1000
 hash_table = {}
 
+numar_barbati = int(populatie * proportie_sex["B"])
+numar_femei = populatie - numar_barbati
+
+# Functie care calculeaza cifra de control folosita in cnp
 def cifra_control(baza_cnp):
     suma = 0
     for i in range(12):
@@ -21,6 +26,7 @@ def cifra_control(baza_cnp):
     else:
         return str(rest)
 
+# Functie care genereaza cnp-uri conform cerintei si le da mai departe
 def genereaza_cnp(sex):
     an = random.randint(1924, 2024)
     if an < 2000:
@@ -34,26 +40,39 @@ def genereaza_cnp(sex):
         else:
             s = "6"
     luna = random.randint(1, 12)
-    zi = random.randint(1, 28)
+    if luna == 2:
+        if an % 4 == 0 and (an % 100 != 0 or an % 400 == 0):
+            zi = random.randint(1,29)
+        else:
+            zi = random.randint(1,28)
+    elif luna in [1, 3, 5, 7, 8, 10, 12]:
+        zi = random.randint(1, 31)
+    else:
+        zi = random.randint(1,30)
     judet = random.randint(1, 41)
     nnn = random.randint(1, 999)
     baza_cnp = f"{s}{an%100:02d}{luna:02d}{zi:02d}{judet:02d}{nnn:03d}"
     cifra_c = cifra_control(baza_cnp)
     return baza_cnp + cifra_c
 
-for _ in range(populatie):
-    if random.random() < proportie_sex["B"]:
-        sex = "B"
-    else:
-        sex = "F"
-    cnp = genereaza_cnp(sex)
-    nume = fake.name()
-    data.append([cnp, nume])
+if os.path.exists(output_file) and os.path.getsize(output_file) > 0:
+    with open(output_file, "r", newline="", encoding="utf-8") as f:
+        date_csv = csv.reader(f)
+        data = [row for row in date_csv]
+else:
+    for _ in range(numar_barbati):
+        cnp = genereaza_cnp("B")
+        nume = fake.name()
+        data.append([cnp, nume])
+    for _ in range(numar_femei):
+        cnp = genereaza_cnp("F")
+        nume = fake.name()
+        data.append([cnp, nume])
+    with open(output_file, "w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerows(data)
 
-with open(output_file, "w", newline="", encoding="utf-8") as f:
-    writer = csv.writer(f)
-    writer.writerows(data)
-
+# Functie care calculeaza indexul pentru fiecare cnp
 def hash_cnp(cnp, size):
     grupuri = []
     for i in range(0, len(cnp), 3):
@@ -61,18 +80,16 @@ def hash_cnp(cnp, size):
     suma = sum(grupuri)
     return suma % size
 
+# Functie care pune cnp-urile in tabela de hash conform indexului
 def uniformizare(hash_table, cnp, nume, size):
     index = hash_cnp(cnp, size)
     if index not in hash_table:
         hash_table[index] = []
     hash_table[index].append((cnp, nume))
 
-with open(output_file, "r", newline="", encoding="utf-8") as f:
-    reader = csv.reader(f)
-    for row in reader:
-        if len(row) == 2:
-            cnp, nume = row
-            uniformizare(hash_table, cnp, nume, table_size)
+for row in data:
+    cnp, nume = row
+    uniformizare(hash_table, cnp, nume, table_size)
 
 cnp_aleatorii = random.sample(data,1000)
 
