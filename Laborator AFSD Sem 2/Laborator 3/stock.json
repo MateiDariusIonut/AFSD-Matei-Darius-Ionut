@@ -1,10 +1,10 @@
 {
   "bancnote": [
-    { "valoare": 50, "stoc": 20 },
-    { "valoare": 20, "stoc": 30 },
-    { "valoare": 10, "stoc": 40 },
-    { "valoare": 5, "stoc": 50 },
-    { "valoare": 1, "stoc": 100 }
+    { "valoare": 50, "stoc": 0 },
+    { "valoare": 20, "stoc": 0 },
+    { "valoare": 10, "stoc": 0 },
+    { "valoare": 5, "stoc": 0 },
+    { "valoare": 1, "stoc": 500 }
   ],
   "produse": [
     { "nume": "Lapte", "pret": 7 },

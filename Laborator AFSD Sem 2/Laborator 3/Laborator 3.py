@@ -7,6 +7,7 @@ with open("stock.json", "r", encoding="utf-8") as f:
 bancnote_initiale = data["bancnote"]
 produse = data["produse"]
 
+# Functie care calculeaza restul folosind un numar minim de bancnote
 def calculeaza_rest(suma_rest, bancnote, stoc_bancnote):
 
     nr_min_bancnote = [float('inf')] * (suma_rest + 1)
@@ -33,7 +34,8 @@ def calculeaza_rest(suma_rest, bancnote, stoc_bancnote):
             stoc_bancnote[valoare_bancnota] -= 1
     return bancnote_utilizate
 
-
+# Functie care simuleaza clienti si afiseaza pentru fiecare restul oferit cu numar minim de bancnote
+# Daca restul nu se poate oferi se afiseaza atat datele actuale despre stocul bancnotelor cat si numarul de clienti serviti
 def simulare(numar_clienti):
     suma_totala_incasata = 0
     clienti_serviti = 0
@@ -60,6 +62,7 @@ def simulare(numar_clienti):
         else:
             print(f"Restul pe care îl primește clientul: {suma_rest} RON")
             print("Nu se poate oferi restul cu bancnotele disponibile!\n")
+            print(f"Suma totala incasata este de: {suma_totala_incasata}")
             print(f"Au fost serviți {clienti_serviti} clienți!\n")
             print("Stocul actual al bancnotelor:")
             for valoare in sorted(stoc_bancnote.keys(), reverse=True):

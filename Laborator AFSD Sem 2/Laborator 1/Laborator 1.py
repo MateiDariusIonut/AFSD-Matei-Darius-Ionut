@@ -60,12 +60,8 @@ if os.path.exists(output_file) and os.path.getsize(output_file) > 0:
         date_csv = csv.reader(f)
         data = [row for row in date_csv]
 else:
-    for _ in range(numar_barbati):
+    for _ in range(1000001):
         cnp = genereaza_cnp("B")
-        nume = fake.name()
-        data.append([cnp, nume])
-    for _ in range(numar_femei):
-        cnp = genereaza_cnp("F")
         nume = fake.name()
         data.append([cnp, nume])
     with open(output_file, "w", newline="", encoding="utf-8") as f:
@@ -92,6 +88,7 @@ for row in data:
     uniformizare(hash_table, cnp, nume, table_size)
 
 cnp_aleatorii = random.sample(data,1000)
+medie_nr_pasi = 0
 
 for cnp, _ in cnp_aleatorii:
     index = hash_cnp(cnp, table_size)
@@ -99,4 +96,8 @@ for cnp, _ in cnp_aleatorii:
         for i, (cnp_stocat, nume_stocat) in enumerate(hash_table[index], start=1):
             if cnp_stocat == cnp:
                 print(f"CNP-ul: {cnp_stocat} cu numele: {nume_stocat} a fost gasit in {i} pasi")
+                medie_nr_pasi += i
                 break
+
+medie_nr_pasi //= 1000
+print(f"Numarul mediu de pasi este: {medie_nr_pasi}.")
