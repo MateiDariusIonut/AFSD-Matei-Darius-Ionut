@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Lapte",
+        "quantity": 12,
+        "price": 10,
+        "id": 1
+    },
+    {
+        "name": "Zahar",
+        "quantity": 5,
+        "price": 7,
+        "id": 2
+    },
+    {
+        "name": "Praf de copt",
+        "quantity": 15,
+        "price": 2,
+        "id": 3
+    },
+    {
+        "name": "Faina",
+        "quantity": 18,
+        "price": 3,
+        "id": 4
+    },
+    {
+        "name": "Oua",
+        "quantity": 30,
+        "price": 31,
+        "id": 5
+    }
+]
