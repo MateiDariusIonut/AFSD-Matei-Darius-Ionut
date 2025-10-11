@@ -2,11 +2,11 @@ import csv
 
 def spanzuratoarea(cuvant_cenzurat, cuvant):
 
-    alfabet = ['e', 'a', 'i', 'r', 't', 'n', 'u', 'o', 's', 'c', 'l', 'd', 'm', 'p', 'v', 'b', 'f', 'g', 'h', 'z', 'ă', 'ș', 'ț', 'â', 'î', 'j', 'k', 'w', 'x', 'y', 'q']
+    alfabet = ['E', 'A', 'I', 'R', 'T', 'N', 'U', 'O', 'S', 'C', 'L', 'D', 'M', 'P', 'V', 'B', 'F', 'G', 'H', 'Z', 'Ă', 'Ș', 'Ț', 'Â', 'Î', 'J', 'K', 'W', 'X', 'Y', 'Q']
     cuvant_de_ghicit = list(cuvant_cenzurat)
     nr_pasi = 0
     while "*" in cuvant_de_ghicit:
-        for litera in alfabet:
+        for litera in alfabet:x
             if litera in cuvant_de_ghicit:
                 ...
             else:
@@ -20,12 +20,15 @@ def spanzuratoarea(cuvant_cenzurat, cuvant):
     return ''.join(cuvant_de_ghicit), nr_pasi
 
 def main():
-    with open('date.csv', 'r', encoding='utf-8') as f:
-        reader = csv.reader(f)
-        for linie in reader:
-            cuvant_cenzurat, cuvant = linie
+    total_pasi = 0
+    with open('cuvinte_de_verificat.txt', 'r', encoding='utf-8') as f:
+        lines = csv.reader(f, delimiter = ";")
+        for linie in lines:
+            nr,cuvant_cenzurat, cuvant = linie
             rezultat, pasi = spanzuratoarea(cuvant_cenzurat.strip(), cuvant.strip())
-            print(f"Cuvânt: {cuvant} | Ghicit: {rezultat} | Încercări: {pasi}")
+            total_pasi += pasi
+            print(f"Cuvânt ghicit: {cuvant} | Cuvânt: {rezultat} | Încercări: {pasi}")
+    print(f"Număr pași total: {total_pasi}")
 
 if __name__ == "__main__":
     main()
