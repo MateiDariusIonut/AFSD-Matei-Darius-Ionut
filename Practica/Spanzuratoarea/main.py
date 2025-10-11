@@ -6,7 +6,7 @@ def spanzuratoarea(cuvant_cenzurat, cuvant):
     cuvant_de_ghicit = list(cuvant_cenzurat)
     nr_pasi = 0
     while "*" in cuvant_de_ghicit:
-        for litera in alfabet:x
+        for litera in alfabet:
             if litera in cuvant_de_ghicit:
                 ...
             else:
